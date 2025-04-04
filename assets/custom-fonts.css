@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'Qonoha';
+  src: url('fonts/qonoha.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GeosansLight';
+  src: url('fonts/GeosansLight.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GeosansLight';
+  src: url('fonts/GeosansLight-Oblique.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+} 
