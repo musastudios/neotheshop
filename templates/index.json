@@ -121,26 +121,25 @@
         "collection-0": {
           "type": "collection",
           "settings": {
-            "collection": ""
+            "collection": "dresses"
           }
         },
-        "product": {
-          "type": "product",
+        "collection_hgBxTe": {
+          "type": "collection",
           "settings": {
-            "product": "",
-            "second_image": false
+            "collection": "bags"
           }
         },
         "collection-1": {
           "type": "collection",
           "settings": {
-            "collection": ""
+            "collection": "accessories"
           }
         }
       },
       "block_order": [
         "collection-0",
-        "product",
+        "collection_hgBxTe",
         "collection-1"
       ],
       "settings": {
