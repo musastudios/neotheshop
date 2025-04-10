@@ -2,12 +2,39 @@
   margin: 0;
 }
 
+.multicolumn .title.left {
+  text-align: left;
+}
+
+.multicolumn .title.center {
+  text-align: center;
+}
+
+.multicolumn .title.right {
+  text-align: right;
+}
+
 .multicolumn.no-heading .title {
   display: none;
 }
 
 .multicolumn .title-wrapper-with-link {
   margin-top: 0;
+}
+
+.multicolumn__title.left {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.multicolumn__title.center {
+  justify-content: center;
+  text-align: center;
+}
+
+.multicolumn__title.right {
+  justify-content: flex-end;
+  text-align: right;
 }
 
 @media screen and (max-width: 749px) {
