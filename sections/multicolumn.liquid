@@ -120,10 +120,12 @@
               {%- endif -%}
               <div class="multicolumn-card__info">
                 {%- if block.settings.title != blank -%}
-                  <h3 class="inline-richtext">{{ block.settings.title }}</h3>
+                  <h3 class="inline-richtext column-heading {{ section.settings.heading_font }}">
+                    {{ block.settings.title }}
+                  </h3>
                 {%- endif -%}
                 {%- if block.settings.text != blank -%}
-                  <div class="rte">{{ block.settings.text }}</div>
+                  <div class="rte column-text {{ section.settings.text_font }}">{{ block.settings.text }}</div>
                 {%- endif -%}
                 {%- if block.settings.link_label != blank -%}
                   <a
@@ -252,6 +254,50 @@
       ],
       "default": "center",
       "label": "Heading alignment"
+    },
+    {
+      "type": "header",
+      "content": "Column Styles"
+    },
+    {
+      "type": "select",
+      "id": "heading_font",
+      "options": [
+        {
+          "value": "qonoha-large",
+          "label": "Qonoha - Large"
+        },
+        {
+          "value": "qonoha-medium",
+          "label": "Qonoha - Medium"
+        },
+        {
+          "value": "qonoha-small",
+          "label": "Qonoha - Small"
+        },
+        {
+          "value": "default",
+          "label": "Default Font"
+        }
+      ],
+      "default": "qonoha-medium",
+      "label": "Column Heading Font"
+    },
+    {
+      "type": "select",
+      "id": "text_font",
+      "options": [
+        {
+          "value": "geosans",
+          "label": "GeosansLight"
+        },
+        {
+          "value": "default",
+          "label": "Default Font"
+        }
+      ],
+      "default": "geosans",
+      "label": "Column Text Font"
     },
     {
       "type": "header",
