@@ -202,9 +202,9 @@
         "settings": {
           "background": "#f0e9df",
           "background_gradient": "",
-          "text": "#7291c8",
-          "heading_text": "#121212",
-          "button": "#7291c8",
+          "text": "#121212",
+          "heading_text": "#7291c8",
+          "button": "#9a8c4f",
           "button_label": "#ffffff",
           "secondary_button_label": "#a89a8f",
           "shadow": "#121212"
