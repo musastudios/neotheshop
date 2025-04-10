@@ -8,3 +8,10 @@
 ehthumbs.db
 Thumbs.db
 .shopify
+
+# Font files
+assets/*.ttf
+assets/*.otf
+assets/*.woff
+assets/*.woff2
+assets/*.eot
