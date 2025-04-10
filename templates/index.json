@@ -155,6 +155,7 @@
     },
     "video": {
       "type": "video",
+      "disabled": true,
       "settings": {
         "heading": "",
         "heading_size": "h1",
@@ -207,6 +208,8 @@
         "title": "Testimonials",
         "heading_size": "h2",
         "heading_alignment": "center",
+        "heading_font": "qonoha-medium",
+        "text_font": "geosans",
         "image_width": "third",
         "image_ratio": "adapt",
         "button_label": "",
@@ -264,6 +267,8 @@
         "title": "FOLLOW US @NEOTHESHOP",
         "heading_size": "h2",
         "heading_alignment": "center",
+        "heading_font": "qonoha-medium",
+        "text_font": "geosans",
         "image_width": "half",
         "image_ratio": "adapt",
         "button_label": "Button label",
