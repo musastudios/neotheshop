@@ -204,8 +204,8 @@
         "column3"
       ],
       "settings": {
-        "title": "",
-        "heading_size": "h1",
+        "title": "Testimonials",
+        "heading_size": "h2",
         "image_width": "third",
         "image_ratio": "adapt",
         "button_label": "",
