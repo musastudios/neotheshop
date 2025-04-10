@@ -238,8 +238,8 @@
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/corner-down-left.png",
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "title": "Returns",
+            "text": "<p>Products may be returned within 14 days of the delivery date.</p>",
             "link_label": "",
             "link": ""
           }
@@ -248,8 +248,8 @@
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/truck.png",
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "title": "Free Shipping",
+            "text": "<p>On all orders over $100</p>",
             "link_label": "",
             "link": ""
           }
