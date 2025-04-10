@@ -173,8 +173,8 @@
         "column1": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "title": "",
+            "text": "<p>Absolutely thrilled with my purchase! The variety of sizes and styles in the store is amazing.<br/><br/><strong>Penelope Cross</strong><br/>Tampa, FL</p>",
             "link_label": "",
             "link": ""
           }
@@ -182,8 +182,8 @@
         "column2": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "title": "",
+            "text": "<p>I found the perfect t-shirt that not only fits great but also makes me feel confident and stylish.<br/><br/><strong>Betsy</strong><br/>Mayagüez</p>",
             "link_label": "",
             "link": ""
           }
@@ -191,8 +191,8 @@
         "column3": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "title": "",
+            "text": "<p>The quality of the garments is excellent, and the customer service was outstanding. I will definitely keep shopping here.<br/><br/><strong>Alexandra</strong><br/>San Juan, PR</p>",
             "link_label": "",
             "link": ""
           }
