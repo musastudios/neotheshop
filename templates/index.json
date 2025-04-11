@@ -264,6 +264,9 @@
         "column_dhqLCt",
         "column_XKUb7q"
       ],
+      "custom_css": [
+        ".multicolumn.background-primary .multicolumn-card {background: transparent !important;}"
+      ],
       "settings": {
         "title": "FOLLOW US @NEOTHESHOP",
         "heading_size": "h2",
