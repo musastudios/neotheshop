@@ -23,7 +23,7 @@
           "type": "text",
           "settings": {
             "text": "Curated essentials for women who dress with intention. Minimal, modern, and unmistakably you.",
-            "text_style": "body"
+            "text_style": "subtitle"
           }
         },
         "button": {
