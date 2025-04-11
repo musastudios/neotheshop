@@ -14,7 +14,7 @@
     "footer": {
       "type": "footer",
       "blocks": {
-        "brand_information_qQt8iJ": {
+        "brand_information_C4TXkC": {
           "type": "brand_information",
           "settings": {
             "show_social": true
@@ -23,41 +23,41 @@
         "footer-0": {
           "type": "link_list",
           "settings": {
-            "heading": "Shop",
-            "menu": "main-menu"
+            "heading": "Quick links",
+            "menu": "footer"
           }
         },
         "footer-1": {
           "type": "link_list",
           "settings": {
-            "heading": "Resources",
+            "heading": "Info",
             "menu": "footer"
           }
         },
-        "link_list_MXDdYJ": {
-          "type": "link_list",
+        "footer-2": {
+          "type": "text",
           "settings": {
-            "heading": "About",
-            "menu": "footer"
+            "heading": "Our mission",
+            "subtext": "<p>Share contact information, store details, and brand content with your customers.</p>"
           }
         }
       },
       "block_order": [
-        "brand_information_qQt8iJ",
+        "brand_information_C4TXkC",
         "footer-0",
         "footer-1",
-        "link_list_MXDdYJ"
+        "footer-2"
       ],
       "settings": {
         "color_scheme": "scheme-3",
         "newsletter_enable": true,
         "newsletter_heading": "Join Our Community!",
         "enable_follow_on_shop": true,
-        "show_social": false,
+        "show_social": true,
         "enable_country_selector": false,
         "enable_language_selector": false,
         "payment_enable": true,
-        "show_policy": true,
+        "show_policy": false,
         "margin_top": 0,
         "padding_top": 60,
         "padding_bottom": 36
