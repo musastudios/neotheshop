@@ -1,0 +1,32 @@
+.card-product__hover-video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.media--hover-effect:hover .card-product__hover-video-container {
+  opacity: 1;
+}
+
+.card-product__hover-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Ensure videos only play when hovered */
+.card-product__hover-video {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.media--hover-effect:hover .card-product__hover-video {
+  opacity: 1;
+  visibility: visible;
+} 

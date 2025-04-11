@@ -16,6 +16,7 @@
   - horizontal_class: {Boolean} Add a card--horizontal class if set to true. Default: false (optional)
   - horizontal_quick_add: {Boolean} Changes the quick add button styles when set to true. Default: false (optional)
   - placeholder_image: {String} The placeholder image to use when no product exists. Default: 'product-apparel-2' (optional)
+  - show_video_on_hover: {Boolean} Show video on hover. Default: false (optional)
 
   Usage:
   {% render 'card-product', show_vendor: section.settings.show_vendor %}
@@ -23,10 +24,10 @@
 {%- unless skip_styles -%}
   {{ 'component-rating.css' | asset_url | stylesheet_tag }}
   {{ 'component-volume-pricing.css' | asset_url | stylesheet_tag }}
-
   {{ 'component-price.css' | asset_url | stylesheet_tag }}
   {{ 'quick-order-list.css' | asset_url | stylesheet_tag }}
   {{ 'quantity-popover.css' | asset_url | stylesheet_tag }}
+  {{ 'component-card-product-hover-video.css' | asset_url | stylesheet_tag }}
 {%- endunless -%}
 {%- if card_product and card_product != empty -%}
   {%- liquid
@@ -102,6 +103,32 @@
                   width="{{ card_product.media[1].width }}"
                   height="{{ card_product.media[1].height }}"
                 >
+              {%- elsif show_video_on_hover -%}
+                {%- liquid
+                  assign video_media = null
+                  for media in card_product.media
+                    if media.media_type == 'video' and media.sources[0].url contains '.mp4'
+                      assign video_media = media
+                      break
+                    endif
+                  endfor
+                -%}
+
+                {%- if video_media != null -%}
+                  <div class="card-product__hover-video-container">
+                    <video
+                      class="card-product__hover-video"
+                      src="{{ video_media.sources[0].url }}"
+                      autoplay
+                      muted
+                      loop
+                      playsinline
+                      preload="none"
+                      width="{{ video_media.width }}"
+                      height="{{ video_media.height }}"
+                    ></video>
+                  </div>
+                {%- endif -%}
               {%- endif -%}
             </div>
           </div>
