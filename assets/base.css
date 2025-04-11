@@ -880,6 +880,7 @@ summary::-webkit-details-marker {
 }
 
 .subtitle {
+  font-family: 'GeosansLight', sans-serif;
   font-size: 1.8rem;
   line-height: calc(1 + 0.8 / var(--font-body-scale));
   letter-spacing: 0.06rem;
@@ -1181,8 +1182,7 @@ summary::-webkit-details-marker {
   border-radius: 50%;
 }
 
-.media.media--hover-effect > img + img,
-.media.media--hover-effect > img + video {
+.media.media--hover-effect > img + img {
   opacity: 0;
 }
 
