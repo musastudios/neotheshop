@@ -18,15 +18,25 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-/* Ensure videos only play when hovered */
-.card-product__hover-video {
   opacity: 0;
   visibility: hidden;
+  transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
 }
 
 .media--hover-effect:hover .card-product__hover-video {
   opacity: 1;
   visibility: visible;
+}
+
+/* Fix for iOS devices */
+@supports (-webkit-touch-callout: none) {
+  .card-product__hover-video-container {
+    z-index: 2; /* Higher z-index for iOS */
+  }
+  
+  .card-product__hover-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 } 

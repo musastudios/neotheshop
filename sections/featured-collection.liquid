@@ -25,7 +25,36 @@
 {%- endif -%}
 
 {%- if section.settings.show_video_on_hover -%}
-  <script src="{{ 'card-product-hover-video.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'card-product-hover-video.js' | asset_url }}" defer="defer" crossorigin="anonymous"></script>
+  <script>
+    // Workaround for security errors with sessionStorage/localStorage
+    document.addEventListener('DOMContentLoaded', function () {
+      try {
+        window.localStorage;
+      } catch (e) {
+        // Create dummy storage if access is restricted
+        Object.defineProperty(window, 'localStorage', {
+          value: {
+            getItem: function () {
+              return null;
+            },
+            setItem: function () {},
+            removeItem: function () {},
+          },
+        });
+
+        Object.defineProperty(window, 'sessionStorage', {
+          value: {
+            getItem: function () {
+              return null;
+            },
+            setItem: function () {},
+            removeItem: function () {},
+          },
+        });
+      }
+    });
+  </script>
 {%- endif -%}
 
 {%- style -%}
