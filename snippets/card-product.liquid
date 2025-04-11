@@ -123,10 +123,13 @@
                       muted
                       loop
                       playsinline
-                      preload="auto"
+                      preload="metadata"
                       width="{{ video_media.width }}"
                       height="{{ video_media.height }}"
                       poster="{{ video_media.preview_image | image_url: width: 533 }}"
+                      data-product-id="{{ card_product.id }}"
+                      aria-hidden="true"
+                      tabindex="-1"
                     ></video>
                   </div>
                 {%- endif -%}

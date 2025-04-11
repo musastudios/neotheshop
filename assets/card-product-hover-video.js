@@ -1,5 +1,6 @@
 class CardProductHoverVideo {
   constructor() {
+    // Wait for DOM to be ready before initializing
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', () => this.init());
     } else {
@@ -8,76 +9,164 @@ class CardProductHoverVideo {
   }
 
   init() {
-    // Initialize videos immediately and set them up for playback
-    this.setupVideos();
+    // Find all videos
+    this.videos = document.querySelectorAll('.card-product__hover-video');
+    if (!this.videos.length) {
+      console.log('No hover videos found on page');
+      return;
+    }
 
-    // Setup event listeners for hovering
-    this.setupEventListeners();
+    // Load all video metadata but don't autoplay yet
+    this.preloadVideos();
+
+    // Add event listeners for hover
+    this.addHoverListeners();
+
+    console.log('Hover video functionality initialized');
   }
 
-  setupVideos() {
-    const videos = document.querySelectorAll('.card-product__hover-video');
-
-    videos.forEach((video) => {
-      // Pre-load the video
+  preloadVideos() {
+    this.videos.forEach((video) => {
+      // Set essential attributes
+      video.muted = true;
+      video.loop = true;
+      video.playsInline = true;
       video.preload = 'auto';
 
-      // Ensure video has the necessary attributes for autoplay
-      video.muted = true;
-      video.playsInline = true;
-      video.loop = true;
-
-      // Force load the video metadata
-      video.load();
+      // Load metadata
+      try {
+        video.load();
+      } catch (e) {
+        console.error('Error loading video:', e);
+      }
     });
   }
 
-  setupEventListeners() {
-    const cardProducts = document.querySelectorAll('.card-wrapper');
+  addHoverListeners() {
+    // Find all product cards
+    const cards = document.querySelectorAll('.card-wrapper');
 
-    cardProducts.forEach((card) => {
+    cards.forEach((card) => {
       const videoContainer = card.querySelector('.card-product__hover-video-container');
       if (!videoContainer) return;
 
       const video = videoContainer.querySelector('video');
       if (!video) return;
 
-      // Load video when card is hovered
-      card.addEventListener('mouseenter', () => {
-        try {
-          const playPromise = video.play();
+      // Add visibility observer to preload when card becomes visible
+      this.observeVisibility(card, video);
 
-          if (playPromise !== undefined) {
-            playPromise.catch((error) => {
-              console.error('Error playing video:', error);
-              // Try again with user interaction simulation
-              setTimeout(() => {
-                video.play().catch((e) => console.error('Second attempt failed:', e));
-              }, 100);
-            });
-          }
-        } catch (error) {
-          console.error('Exception when playing video:', error);
-        }
-      });
+      // Mouse enter - play video
+      card.addEventListener('mouseenter', () => this.playVideo(video));
 
-      // Pause video when mouse leaves
-      card.addEventListener('mouseleave', () => {
-        try {
-          if (!video.paused) {
-            video.pause();
+      // Mouse leave - pause video
+      card.addEventListener('mouseleave', () => this.pauseVideo(video));
+
+      // Touch devices - handle taps (first tap loads, second tap plays)
+      if ('ontouchstart' in window) {
+        let touched = false;
+        card.addEventListener('touchstart', (e) => {
+          if (!touched) {
+            // First touch - prepare video
+            touched = true;
+            this.prepareVideo(video);
+            setTimeout(() => {
+              touched = false;
+            }, 300);
+          } else {
+            // Second touch - play
+            this.playVideo(video);
           }
-          // Reset video to beginning for next hover
-          video.currentTime = 0;
-        } catch (error) {
-          console.error('Error pausing video:', error);
-        }
-      });
+        });
+      }
     });
+  }
+
+  observeVisibility(card, video) {
+    // Use Intersection Observer to detect when a card is visible
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              // Preload video when card becomes visible
+              this.prepareVideo(video);
+              observer.unobserve(card); // Stop observing once we've preloaded
+            }
+          });
+        },
+        { threshold: 0.1 }
+      ); // 10% visibility is enough to start preloading
+
+      observer.observe(card);
+    }
+  }
+
+  prepareVideo(video) {
+    if (!video.getAttribute('data-loaded')) {
+      video.load();
+      video.setAttribute('data-loaded', 'true');
+    }
+  }
+
+  playVideo(video) {
+    if (!video) return;
+
+    try {
+      // Ensure video is visible
+      const container = video.closest('.card-product__hover-video-container');
+      if (container) {
+        container.style.opacity = '1';
+      }
+
+      video.style.opacity = '1';
+      video.style.visibility = 'visible';
+
+      // Play the video
+      const playPromise = video.play();
+
+      if (playPromise !== undefined) {
+        playPromise.catch((error) => {
+          console.warn('Initial play attempt failed:', error.message);
+
+          // Retry with user interaction simulation
+          setTimeout(() => {
+            video.muted = true; // Ensure muted (autoplay policy)
+            video.play().catch((e) => console.error('Retry play failed:', e.message));
+          }, 50);
+        });
+      }
+    } catch (error) {
+      console.error('Error during video play:', error);
+    }
+  }
+
+  pauseVideo(video) {
+    if (!video) return;
+
+    try {
+      // Hide the video
+      const container = video.closest('.card-product__hover-video-container');
+      if (container) {
+        container.style.opacity = '0';
+      }
+
+      video.style.opacity = '0';
+      video.style.visibility = 'hidden';
+
+      // Pause and reset the video
+      if (!video.paused) {
+        video.pause();
+      }
+      video.currentTime = 0;
+    } catch (error) {
+      console.error('Error during video pause:', error);
+    }
   }
 }
 
-// Wait for window to fully load before initializing
+// Initialize on window load for best performance
 window.addEventListener('load', () => {
   new CardProductHoverVideo();
+  console.log('CardProductHoverVideo loaded');
 });
