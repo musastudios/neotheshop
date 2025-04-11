@@ -1,0 +1,108 @@
+.neo-footer {
+  padding: 60px 0 40px;
+  background-color: var(--color-base-background-2);
+}
+
+.neo-footer__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: 0 var(--grid-desktop-horizontal-spacing);
+}
+
+.neo-footer__section {
+  margin-bottom: 2.5rem;
+}
+
+.neo-footer__menu-title {
+  font-size: calc(var(--font-heading-scale) * 1.4rem);
+  margin-top: 0;
+  margin-bottom: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.neo-footer__menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.neo-footer__menu-item {
+  margin-bottom: 12px;
+}
+
+.neo-footer__menu-link {
+  color: var(--color-foreground);
+  text-decoration: none;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.neo-footer__menu-link:hover {
+  opacity: 0.8;
+}
+
+.neo-footer__logo {
+  max-width: 150px;
+  margin-bottom: 20px;
+}
+
+.neo-footer__social-list {
+  display: flex;
+  gap: 15px;
+  padding: 0;
+  margin: 20px 0 0;
+  list-style: none;
+}
+
+.neo-footer__bottom {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(var(--color-foreground-rgb), 0.1);
+}
+
+@media screen and (max-width: 989px) {
+  .neo-footer__grid {
+    gap: 30px;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .neo-footer {
+    padding: 40px 0 20px;
+  }
+
+  .neo-footer__grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    padding: 0 var(--grid-mobile-horizontal-spacing);
+  }
+
+  .neo-footer__section {
+    margin-bottom: 0;
+  }
+
+  .neo-footer__menu-title {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(var(--color-foreground-rgb), 0.08);
+  }
+
+  .neo-footer__menu-list {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease-in-out;
+    padding-top: 10px;
+  }
+
+  .neo-footer__menu-title.open + .neo-footer__menu-list {
+    max-height: 500px;
+  }
+} 
