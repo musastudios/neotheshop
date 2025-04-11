@@ -123,14 +123,36 @@
                       muted
                       loop
                       playsinline
-                      preload="metadata"
+                      preload="auto"
                       width="{{ video_media.width }}"
                       height="{{ video_media.height }}"
                       poster="{{ video_media.preview_image | image_url: width: 533 }}"
                       data-product-id="{{ card_product.id }}"
                       aria-hidden="true"
                       tabindex="-1"
-                    ></video>
+                      onmouseover="this.play()"
+                      onmouseout="this.pause(); this.currentTime=0;"
+                    >
+                      <source src="{{ video_media.sources[0].url }}" type="video/mp4">
+                    </video>
+                    <script>
+                      // Inline script to ensure video plays on hover
+                      document.addEventListener('DOMContentLoaded', function () {
+                        var video = document.querySelector('[data-product-id="{{ card_product.id }}"]');
+                        if (video) {
+                          video.addEventListener('canplaythrough', function () {
+                            video.setAttribute('data-ready', 'true');
+                          });
+
+                          var container = video.closest('.card-wrapper');
+                          if (container) {
+                            container.addEventListener('mouseenter', function () {
+                              if (video.paused) video.play();
+                            });
+                          }
+                        }
+                      });
+                    </script>
                   </div>
                 {%- endif -%}
               {%- endif -%}

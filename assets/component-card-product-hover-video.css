@@ -5,10 +5,13 @@
   width: 100%;
   height: 100%;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  z-index: 2; /* Increased z-index to ensure it's above other elements */
+  transition: opacity 0.25s ease-in-out;
+  z-index: 5; /* Higher z-index to ensure it's above other elements */
   overflow: hidden;
   pointer-events: none; /* Don't interfere with hover events */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .media--hover-effect:hover .card-product__hover-video-container {
@@ -21,11 +24,23 @@
   object-fit: cover;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-  background: transparent; /* Ensure transparent background */
+  transition: opacity 0.25s ease-in-out, visibility 0.25s ease-in-out;
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .media--hover-effect:hover .card-product__hover-video {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Direct hover state for better browser support */
+.card__media:hover .card-product__hover-video,
+.card__media:hover .card-product__hover-video-container {
   opacity: 1;
   visibility: visible;
 }
@@ -39,7 +54,7 @@
 /* Fix for iOS devices */
 @supports (-webkit-touch-callout: none) {
   .card-product__hover-video-container {
-    z-index: 2; /* Higher z-index for iOS */
+    z-index: 5; /* Higher z-index for iOS */
   }
   
   .card-product__hover-video {
@@ -50,11 +65,12 @@
 }
 
 /* Force muted attribute for all browsers */
+.card-product__hover-video::-webkit-media-controls,
+.card-product__hover-video::-webkit-media-controls-panel,
 .card-product__hover-video::-webkit-media-controls-volume-slider,
 .card-product__hover-video::-webkit-media-controls-mute-button {
-  display: none;
-}
-
-.card-product__hover-video::-webkit-media-controls {
   display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  width: 0 !important;
 } 
