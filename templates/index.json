@@ -106,6 +106,7 @@
         "image_ratio": "adapt",
         "image_shape": "default",
         "show_secondary_image": true,
+        "show_video_on_hover": true,
         "show_vendor": false,
         "show_rating": false,
         "quick_add": "none",
