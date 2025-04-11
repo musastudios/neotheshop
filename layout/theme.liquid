@@ -5,6 +5,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="">
+
+    <!-- Storage polyfill for sandboxed environments -->
+    <script>
+      (function () {
+        try {
+          // Test if we can access storage
+          window.localStorage.getItem('test');
+          window.sessionStorage.getItem('test');
+        } catch (e) {
+          // Create memory storage implementation
+          var memoryStorage = {
+            _data: {},
+            setItem: function (id, val) {
+              this._data[id] = String(val);
+            },
+            getItem: function (id) {
+              return this._data[id] || null;
+            },
+            removeItem: function (id) {
+              delete this._data[id];
+            },
+            clear: function () {
+              this._data = {};
+            },
+            key: function (i) {
+              return Object.keys(this._data)[i] || null;
+            },
+            get length() {
+              return Object.keys(this._data).length;
+            },
+          };
+
+          // Apply polyfills safely
+          try {
+            Object.defineProperty(window, 'localStorage', {
+              value: memoryStorage,
+              configurable: true,
+              enumerable: true,
+              writable: false,
+            });
+
+            Object.defineProperty(window, 'sessionStorage', {
+              value: memoryStorage,
+              configurable: true,
+              enumerable: true,
+              writable: false,
+            });
+          } catch (e) {}
+        }
+      })();
+    </script>
+
     <link rel="canonical" href="{{ canonical_url }}">
     <link rel="stylesheet" href="{{ 'custom-fonts.css' | asset_url }}">
 

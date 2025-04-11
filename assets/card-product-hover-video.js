@@ -1,57 +1,10 @@
 class CardProductHoverVideo {
   constructor() {
-    // Create fallback storage if needed
-    this.setupStorageFallbacks();
-
     // Wait for DOM to be ready before initializing
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', () => this.init());
     } else {
       this.init();
-    }
-  }
-
-  setupStorageFallbacks() {
-    // Create fallbacks for sessionStorage and localStorage
-    try {
-      // Test access
-      window.sessionStorage.getItem('test');
-      window.localStorage.getItem('test');
-    } catch (e) {
-      // Create polyfills if access is restricted
-      this.createStoragePolyfill();
-    }
-  }
-
-  createStoragePolyfill() {
-    // Memory storage fallbacks
-    const memoryStorage = {
-      _data: {},
-      setItem: function (id, val) {
-        this._data[id] = String(val);
-      },
-      getItem: function (id) {
-        return this._data[id] || null;
-      },
-      removeItem: function (id) {
-        delete this._data[id];
-      },
-      clear: function () {
-        this._data = {};
-      },
-    };
-
-    // Only override if the real storage is inaccessible
-    try {
-      window.localStorage.getItem('test');
-    } catch (e) {
-      Object.defineProperty(window, 'localStorage', { value: memoryStorage });
-    }
-
-    try {
-      window.sessionStorage.getItem('test');
-    } catch (e) {
-      Object.defineProperty(window, 'sessionStorage', { value: memoryStorage });
     }
   }
 
