@@ -170,7 +170,7 @@
           "heading_text": "#ffffff",
           "button": "#d19c98",
           "button_label": "#ffffff",
-          "secondary_button_label": "#ffffff",
+          "secondary_button_label": "#d19c98",
           "shadow": "#121212"
         }
       },
