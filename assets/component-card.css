@@ -595,3 +595,38 @@
     clip-path: polygon(var(--shape--blob-5));
   }
 }
+
+.media.media--hover-effect > img + rollover-video video {
+  opacity: 0;
+}
+  
+.card__media .media video {
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  width: 100%;
+}
+
+@media screen and (min-width: 990px) {
+  .card .media.media--hover-effect > video:only-child,
+  .card-wrapper .media.media--hover-effect > video:only-child {
+    transition: transform var(--duration-long) ease;
+  }
+
+  .card:hover .media.media--hover-effect > video:first-child:only-child,
+  .card-wrapper:hover .media.media--hover-effect > video:first-child:only-child {
+    transform: scale(1.03);
+  }
+
+  .card-wrapper:hover
+    .media.media--hover-effect
+    > video:first-child:not(:only-child) {
+    opacity: 0;
+  }
+
+  .card-wrapper:hover .media.media--hover-effect > img + rollover-video video {
+    opacity: 1;
+    transition: transform var(--duration-long) ease;
+    transform: scale(1.03);
+  }
+}
