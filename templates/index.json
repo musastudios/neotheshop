@@ -44,7 +44,7 @@
         "button"
       ],
       "custom_css": [
-        "/* Banner Sub-Text *//* glassmorphism effect */.banner__buttons .button {font-family: \"GeosansLight\" !important; padding: 16px 38px; outline: none !important; border-radius: 0; background: rgba(255, 255, 255, 0.2); /* semi-transparent white */ color: #fff; font-size: 18px; backdrop-filter: blur(8px); /* frosted blur */ -webkit-backdrop-filter: blur(8px); /* Safari support */ box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); cursor: pointer; transition: all 0.3s ease;}",
+        "/* Banner Sub-Text */ /* glassmorphism effect */.banner__buttons .button {font-family: \"GeosansLight\" !important; padding: 16px 38px; outline: none !important; border-radius: 0; background: rgba(255, 255, 255, 0.2); /* semi-transparent white */ color: #fff; font-size: 18px; backdrop-filter: blur(8px); /* frosted blur */ -webkit-backdrop-filter: blur(8px); /* Safari support */ box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); cursor: pointer; transition: all 0.3s ease;}",
         ".banner__buttons .button:hover {background: rgba(255, 255, 255, 0.4); /* a little brighter on hover */}"
       ],
       "settings": {
