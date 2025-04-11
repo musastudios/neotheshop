@@ -14,14 +14,6 @@
     "footer": {
       "type": "footer",
       "blocks": {
-        "image_KTw9Mh": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/neotheshop_icon_crema_web_475x_ea201301-36f9-4ff3-aed4-7b5ff990d70b.png",
-            "image_width": 100,
-            "alignment": "center"
-          }
-        },
         "brand_information_qQt8iJ": {
           "type": "brand_information",
           "settings": {
@@ -51,7 +43,6 @@
         }
       },
       "block_order": [
-        "image_KTw9Mh",
         "brand_information_qQt8iJ",
         "footer-0",
         "footer-1",
@@ -66,7 +57,7 @@
         "enable_country_selector": false,
         "enable_language_selector": false,
         "payment_enable": true,
-        "show_policy": false,
+        "show_policy": true,
         "margin_top": 0,
         "padding_top": 60,
         "padding_bottom": 36
