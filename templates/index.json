@@ -43,6 +43,10 @@
         "text",
         "button"
       ],
+      "custom_css": [
+        "/* glassmorphism effect */.banner__buttons .button {font-family: \"GeosansLight\"; padding: 16px 38px; border: none; border-radius: 0; background: rgba(255, 255, 255, 0.2); /* semi-transparent white */ color: #fff; font-size: 18px; backdrop-filter: blur(8px); /* frosted blur */ -webkit-backdrop-filter: blur(8px); /* Safari support */ box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); cursor: pointer; transition: all 0.3s ease;}",
+        ".banner__buttons .button:hover {background: rgba(255, 255, 255, 0.4); /* a little brighter on hover */}"
+      ],
       "settings": {
         "image": "shopify://shop_images/slideone.jpg",
         "image_overlay_opacity": 40,
