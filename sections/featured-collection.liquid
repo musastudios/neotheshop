@@ -25,7 +25,13 @@
 {%- endif -%}
 
 {%- if section.settings.show_video_on_hover -%}
-  <script src="{{ 'card-product-hover-video.js' | asset_url }}" defer="defer" crossorigin="anonymous"></script>
+  <link
+    rel="stylesheet"
+    href="{{ 'component-card-product-hover-video.css' | asset_url }}"
+    media="print"
+    onload="this.media='all'"
+  >
+  <script src="{{ 'rollover-video.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
 {%- style -%}

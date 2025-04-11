@@ -1181,7 +1181,8 @@ summary::-webkit-details-marker {
   border-radius: 50%;
 }
 
-.media.media--hover-effect > img + img {
+.media.media--hover-effect > img + img,
+.media.media--hover-effect > img + video {
   opacity: 0;
 }
 
