@@ -1,10 +1,57 @@
 class CardProductHoverVideo {
   constructor() {
+    // Create fallback storage if needed
+    this.setupStorageFallbacks();
+
     // Wait for DOM to be ready before initializing
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', () => this.init());
     } else {
       this.init();
+    }
+  }
+
+  setupStorageFallbacks() {
+    // Create fallbacks for sessionStorage and localStorage
+    try {
+      // Test access
+      window.sessionStorage.getItem('test');
+      window.localStorage.getItem('test');
+    } catch (e) {
+      // Create polyfills if access is restricted
+      this.createStoragePolyfill();
+    }
+  }
+
+  createStoragePolyfill() {
+    // Memory storage fallbacks
+    const memoryStorage = {
+      _data: {},
+      setItem: function (id, val) {
+        this._data[id] = String(val);
+      },
+      getItem: function (id) {
+        return this._data[id] || null;
+      },
+      removeItem: function (id) {
+        delete this._data[id];
+      },
+      clear: function () {
+        this._data = {};
+      },
+    };
+
+    // Only override if the real storage is inaccessible
+    try {
+      window.localStorage.getItem('test');
+    } catch (e) {
+      Object.defineProperty(window, 'localStorage', { value: memoryStorage });
+    }
+
+    try {
+      window.sessionStorage.getItem('test');
+    } catch (e) {
+      Object.defineProperty(window, 'sessionStorage', { value: memoryStorage });
     }
   }
 
@@ -85,27 +132,39 @@ class CardProductHoverVideo {
   observeVisibility(card, video) {
     // Use Intersection Observer to detect when a card is visible
     if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              // Preload video when card becomes visible
-              this.prepareVideo(video);
-              observer.unobserve(card); // Stop observing once we've preloaded
-            }
-          });
-        },
-        { threshold: 0.1 }
-      ); // 10% visibility is enough to start preloading
+      try {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                // Preload video when card becomes visible
+                this.prepareVideo(video);
+                observer.unobserve(card); // Stop observing once we've preloaded
+              }
+            });
+          },
+          { threshold: 0.1 }
+        ); // 10% visibility is enough to start preloading
 
-      observer.observe(card);
+        observer.observe(card);
+      } catch (e) {
+        // Fallback if IntersectionObserver fails
+        this.prepareVideo(video); // Just preload immediately
+      }
+    } else {
+      // Fallback for browsers without IntersectionObserver
+      this.prepareVideo(video);
     }
   }
 
   prepareVideo(video) {
-    if (!video.getAttribute('data-loaded')) {
-      video.load();
-      video.setAttribute('data-loaded', 'true');
+    if (!video.hasAttribute('data-loaded')) {
+      try {
+        video.load();
+        video.setAttribute('data-loaded', 'true');
+      } catch (e) {
+        console.error('Error preparing video:', e);
+      }
     }
   }
 
@@ -122,19 +181,25 @@ class CardProductHoverVideo {
       video.style.opacity = '1';
       video.style.visibility = 'visible';
 
-      // Play the video
-      const playPromise = video.play();
+      // Play the video with error handling
+      if (video.paused) {
+        const playPromise = video.play();
 
-      if (playPromise !== undefined) {
-        playPromise.catch((error) => {
-          console.warn('Initial play attempt failed:', error.message);
+        if (playPromise !== undefined) {
+          playPromise.catch((error) => {
+            console.warn('Initial play attempt failed:', error.message);
 
-          // Retry with user interaction simulation
-          setTimeout(() => {
-            video.muted = true; // Ensure muted (autoplay policy)
-            video.play().catch((e) => console.error('Retry play failed:', e.message));
-          }, 50);
-        });
+            // Retry with user interaction simulation
+            setTimeout(() => {
+              video.muted = true; // Ensure muted (autoplay policy)
+              try {
+                video.play().catch((e) => console.error('Retry play failed:', e.message));
+              } catch (e) {
+                console.error('Exception during retry play:', e);
+              }
+            }, 50);
+          });
+        }
       }
     } catch (error) {
       console.error('Error during video play:', error);
@@ -156,17 +221,39 @@ class CardProductHoverVideo {
 
       // Pause and reset the video
       if (!video.paused) {
-        video.pause();
+        try {
+          video.pause();
+        } catch (e) {
+          console.error('Error pausing video:', e);
+        }
       }
-      video.currentTime = 0;
+
+      try {
+        video.currentTime = 0;
+      } catch (e) {
+        console.error('Error resetting video time:', e);
+      }
     } catch (error) {
       console.error('Error during video pause:', error);
     }
   }
 }
 
-// Initialize on window load for best performance
-window.addEventListener('load', () => {
-  new CardProductHoverVideo();
-  console.log('CardProductHoverVideo loaded');
-});
+// Safely initialize on window load for best performance
+try {
+  window.addEventListener('load', () => {
+    try {
+      new CardProductHoverVideo();
+      console.log('CardProductHoverVideo loaded');
+    } catch (e) {
+      console.error('Error initializing CardProductHoverVideo:', e);
+    }
+  });
+} catch (e) {
+  // Last resort - initialize immediately
+  try {
+    new CardProductHoverVideo();
+  } catch (e) {
+    console.error('Failed to initialize CardProductHoverVideo:', e);
+  }
+}
