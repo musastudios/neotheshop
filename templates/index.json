@@ -14,6 +14,7 @@
       "blocks": {
         "heading": {
           "type": "heading",
+          "disabled": true,
           "settings": {
             "heading": "Chic Looks for Everyday Icons",
             "heading_size": "h1"
@@ -21,6 +22,7 @@
         },
         "text": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "Curated essentials for women who dress with intention. Minimal, modern, and unmistakably you.",
             "text_style": "subtitle"
