@@ -45,60 +45,9 @@
         "text",
         "button"
       ],
-      "disabled": true,
       "custom_css": [
         "/* glassmorphism effect */.banner__buttons .button {font-family: \"GeosansLight\" !important; padding: 16px 38px; outline: none !important; border-radius: 0; background: rgba(255, 255, 255, 0.2); /* semi-transparent white */ color: #fff; font-size: 18px; backdrop-filter: blur(8px); /* frosted blur */ -webkit-backdrop-filter: blur(8px); /* Safari support */ box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); cursor: pointer; transition: all 0.3s ease;}",
         ".banner__buttons .button:hover {background: rgba(255, 255, 255, 0.4); /* a little brighter on hover */}"
-      ],
-      "settings": {
-        "image": "shopify://shop_images/neotheshop_inspo.jpg",
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "image_behavior": "none",
-        "desktop_content_position": "bottom-center",
-        "desktop_content_alignment": "center",
-        "show_text_box": false,
-        "color_scheme": "scheme-3",
-        "stack_images_on_mobile": false,
-        "mobile_content_alignment": "center",
-        "show_text_below": false
-      }
-    },
-    "image_banner_KzqEaE": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_WDTEPU": {
-          "type": "heading",
-          "disabled": true,
-          "settings": {
-            "heading": "Chic Looks for Everyday Icons",
-            "heading_size": "h1"
-          }
-        },
-        "text_pHzMJJ": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "text": "Curated essentials for women who dress with intention. Minimal, modern, and unmistakably you.",
-            "text_style": "subtitle"
-          }
-        },
-        "buttons_w3Vjif": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify://collections/bottoms",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_WDTEPU",
-        "text_pHzMJJ",
-        "buttons_w3Vjif"
       ],
       "settings": {
         "image": "shopify://shop_images/neotheshop_inspo.jpg",
@@ -156,7 +105,7 @@
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "columns_desktop": 4,
+        "columns_desktop": 3,
         "enable_desktop_slider": false,
         "full_width": false,
         "show_view_all": false,
@@ -349,7 +298,6 @@
   },
   "order": [
     "image_banner",
-    "image_banner_KzqEaE",
     "rich_text",
     "featured_collection",
     "collage",
