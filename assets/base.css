@@ -408,6 +408,10 @@ blockquote {
   text-transform: uppercase;
 }
 
+#MainContent .caption-with-letter-spacing {
+  display:  none !important;
+}
+
 .caption-with-letter-spacing--medium {
   font-size: 1.2rem;
   letter-spacing: 0.16rem;
