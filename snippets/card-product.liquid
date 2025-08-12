@@ -191,7 +191,7 @@
             </a>
           </h3>
           <div class="card-information">
-            {%- if show_vendor -%}
+            {%- if show_vendor and card_product.vendor != 'NA' -%}
               <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
               <div class="caption-with-letter-spacing light">{{ card_product.vendor }}</div>
             {%- endif -%}
