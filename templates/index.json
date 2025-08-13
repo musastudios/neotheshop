@@ -50,7 +50,7 @@
         ".banner__buttons .button:hover {background: rgba(255, 255, 255, 0.4); /* a little brighter on hover */}"
       ],
       "settings": {
-        "image": "shopify://shop_images/neotheshop_inspo.jpg",
+        "image": "shopify://shop_images/Front_Page_Banner_2.png",
         "image_overlay_opacity": 40,
         "image_height": "large",
         "image_behavior": "none",
