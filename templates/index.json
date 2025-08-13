@@ -214,6 +214,7 @@
         "column2",
         "column3"
       ],
+      "disabled": true,
       "settings": {
         "title": "Testimonials",
         "heading_size": "h2",
@@ -262,7 +263,7 @@
           "settings": {
             "image": "shopify://shop_images/truck.png",
             "title": "Free Shipping",
-            "text": "<p>On all orders over $100</p>",
+            "text": "<p>On all orders over $150</p>",
             "link_label": "",
             "link": ""
           }
