@@ -72,19 +72,10 @@
             "heading": "NEW ARRIVALS",
             "heading_size": "h1"
           }
-        },
-        "caption_kan4RJ": {
-          "type": "caption",
-          "settings": {
-            "caption": "Functional styles made of luxurious materials to improve people's lives in small but mighty ways.",
-            "text_style": "subtitle",
-            "text_size": "large"
-          }
         }
       },
       "block_order": [
-        "heading",
-        "caption_kan4RJ"
+        "heading"
       ],
       "settings": {
         "desktop_content_position": "center",
