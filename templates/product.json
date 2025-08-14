@@ -61,7 +61,7 @@
           "settings": {
             "heading": "Shipping & Returns",
             "icon": "truck",
-            "content": "",
+            "content": "<p>Shipping:<br/>Orders can take 1-3 business days to process before shipping. As soon as your package has left our warehouse, you will receive a confirmation email.</p><p>Returns:<br/>If for any reason you are unhappy with your purchase we offer returns for store credit. Please refer to our return policy for details.</p>",
             "page": ""
           }
         },
