@@ -20,7 +20,7 @@
     "product-grid": {
       "type": "main-collection-product-grid",
       "custom_css": [
-        ".card__inner .card__content,.product__info-container .caption-with-letter-spacing {display: none !important;}"
+        ".card__inner .card__content {display: none !important;}"
       ],
       "settings": {
         "products_per_page": 16,

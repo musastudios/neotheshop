@@ -400,5 +400,10 @@
         }
       }
     }
+  },
+  "platform_customizations": {
+    "custom_css": [
+      ".quick-add-modal__content .product__info-container .caption-with-letter-spacing {display: none !important;}"
+    ]
   }
 }
