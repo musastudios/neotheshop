@@ -41,6 +41,9 @@
     },
     "featured-collection": {
       "type": "featured-collection",
+      "custom_css": [
+        ".card__inner .card__content {display: none !important;}"
+      ],
       "settings": {
         "collection": "frontpage",
         "products_to_show": 4,
