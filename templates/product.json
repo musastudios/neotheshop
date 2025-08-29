@@ -188,6 +188,9 @@
     },
     "related-products": {
       "type": "related-products",
+      "custom_css": [
+        ".card__inner .card__content {display: none !important;}"
+      ],
       "settings": {
         "heading": "You may also like",
         "heading_size": "h2",
@@ -195,7 +198,7 @@
         "columns_desktop": 4,
         "columns_mobile": "2",
         "color_scheme": "scheme-1",
-        "image_ratio": "square",
+        "image_ratio": "portrait",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
