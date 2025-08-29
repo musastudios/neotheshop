@@ -20,14 +20,22 @@
             "text": "",
             "link": "https://neotheshop.com/discount/NEO10"
           }
+        },
+        "announcement_mxzhGa": {
+          "type": "announcement",
+          "settings": {
+            "text": "FREE SHIPPING ON ORDERS OVER $250",
+            "link": ""
+          }
         }
       },
       "block_order": [
-        "announcement-bar-0"
+        "announcement-bar-0",
+        "announcement_mxzhGa"
       ],
       "settings": {
-        "auto_rotate": false,
-        "change_slides_speed": 5,
+        "auto_rotate": true,
+        "change_slides_speed": 3,
         "color_scheme": "scheme-2",
         "show_line_separator": true,
         "show_social": false,
